@@ -1,0 +1,24 @@
+<h3>Orbit Report</h3>
+<table>
+   <tr class="header-row">
+      <th class="sortable">Name</th>
+      <th class="sortable">Type</th>
+      <th>Operational</th>
+      <th>Orbit Type</th>
+      <th>Launch Date</th>
+   </tr>
+   <!-- TODO: put <tr *ngFor=""></tr> here -->
+   <tr *ngFor="let satellite of satellites">
+       <td>{{satellite.name}}</td>
+       <td *ngIf = "satellite.type.toLowerCase() !== 'space debris'; else warningLabel">{{satellite.type}}</td>
+       <td>{{satellite.operational}}</td>
+       <td>{{satellite.orbitType}}</td>
+       <td>{{satellite.launchDate}}</td>
+       //color red if space debris
+         <ng-template #warningLabel>
+            <td class="warning">{{satellite.type}}</td>
+         </ng-template>
+   </tr>
+ 
+</table>
+
